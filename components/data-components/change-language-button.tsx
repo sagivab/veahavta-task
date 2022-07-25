@@ -1,5 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 import { useRouter } from 'next/router'
+import Image from 'next/image'
 
 export const ChangeLangButton = ({
   className,
@@ -17,7 +18,9 @@ export const ChangeLangButton = ({
   }
   return (
     <div>
-      <button onClick={() => changeLocale(lang)}>{lang}</button>
+      <button onClick={() => changeLocale(lang)} className="h-8">
+        {children}
+      </button>
     </div>
   )
 }

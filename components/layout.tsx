@@ -12,7 +12,7 @@ export default function Layout({ children, pageProps }: any) {
   }
   return (
     <>
-      <div className="app-wrapper" dir={dir}>
+      <div className="app-wrapper grid flex-col grid-cols-1" dir={dir}>
         <Header data={pageProps.data.common} />
         <Main>{children}</Main>
         <Footer data={pageProps.data.common} />
@@ -33,9 +33,6 @@ export default function Layout({ children, pageProps }: any) {
             height: 100%;
           }
           .app-wrapper {
-            display: grid;
-            flex-direction: column;
-            grid-template-columns: 1fr;
             grid-template-rows: auto auto 1fr auto;
             min-height: -webkit-fill-available;
             height: 100%;
