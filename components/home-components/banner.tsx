@@ -1,15 +1,62 @@
-import { HomePageType } from '@/lib/interface'
+import { Homepage } from '@/lib/interface'
 import themePreval from '@/lib/theme.preval'
 import React from 'react'
 import { PageHeader } from '../data-components/header-text'
+import PageContent from '../data-components/header-content'
+import ImageWrapper from '../image-frame'
 
-export default function Banner({ data }: HomePageType) {
+const ImagesData = [
+  {
+    src: '/Rectangle5.png',
+    alt: 'Rectangle5',
+    className: 'top-64 right-0 z-10',
+  },
+  {
+    src: '/Rectangle2.png',
+    alt: 'Rectangle2',
+    className: 'top-16 left-3/4 z-0',
+  },
+  {
+    src: '/Rectangle6.png',
+    alt: 'Rectangle6',
+    className: 'top-3/4 left-2/3 z-0',
+  },
+  {
+    src: '/Rectangle9.png',
+    alt: 'Rectangle9',
+    className: 'top-0 right-3/4 z-0',
+  },
+  {
+    src: '/Rectangle8.png',
+    alt: 'Rectangle8',
+    className: 'top-80 left-0 z-0',
+  },
+  {
+    src: '/Rectangle7.png',
+    alt: 'Rectangle7',
+    className: 'top-3/4 right-2/3 z-0',
+  },
+  {
+    src: '/Rectangle10.png',
+    alt: 'Rectangle10',
+    className: 'top-0 left-1/3 z-0',
+    height: 190,
+  },
+]
+
+export default function Banner({ homepage }: { homepage: Homepage }) {
   return (
     <div id="top-header">
-      <div className="wrapper">
+      <div className="wrapper top- h-banner flex flex-col justify-center items-center overflow-hidden gap-y-6">
         <div className="background"></div>
-        <PageHeader>{data.homepage.title}</PageHeader>
-
+        <PageHeader>{homepage.title}</PageHeader>
+        <PageContent>{`${homepage.description}.`}</PageContent>
+        <button className="w-48 h-16 mt-12 px-8 py-3 bg-icon-bg rounded-full font-bold text-light text-2xl">
+          {homepage.getToKnowUsButton}
+        </button>
+        {ImagesData.map((imageData) => (
+          <ImageWrapper {...imageData} key={imageData.src} />
+        ))}
         <style jsx>{`
           div.wrapper {
             margin-top: -${themePreval.height.header};
@@ -22,8 +69,8 @@ export default function Banner({ data }: HomePageType) {
             inset: 0;
             background: linear-gradient(
               109.17deg,
-              rgba(1, 157, 177, 0.21) 38.49%,
-              #019db1 98.95%
+              ${themePreval.colors['banner-start']} 38.49%,
+              ${themePreval.colors['banner-end']} 72.36%
             );
           }
         `}</style>
