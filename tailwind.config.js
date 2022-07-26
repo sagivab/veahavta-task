@@ -34,6 +34,7 @@ module.exports = {
         azure: '#E2F7F9',
         'hamburger-bg': '#E6E4FD',
         'banner-start': '#F4F3FD',
+        'what-we-do-upper': '#F4F3FD',
         'banner-end': '#D3D1FC',
       },
       borderWidth: {

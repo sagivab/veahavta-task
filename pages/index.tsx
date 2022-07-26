@@ -24,7 +24,7 @@ export default function Home({ data }: HomePageType) {
         homepage={data.homepage}
         id={data.common.appLinks[1].relativeLink.slice(1)}
       />
-      <WhatWeDo data={data} />
+      <WhatWeDo homepage={data.homepage} />
       <ContactUs data={data} />
       Here is the structure of the home page data:
       <pre className="bg-dark text-light">{JSON.stringify(data, null, 2)}</pre>

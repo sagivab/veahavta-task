@@ -59,6 +59,11 @@ export type Common = {
   footerSupportUsButton: string
 }
 
+export interface CommonComponentProps {
+  homepage: Homepage
+  id: string
+}
+
 export function HOMEPAGE_QUERY(locale: string) {
   return `
 query Homepage {
