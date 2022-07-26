@@ -19,8 +19,11 @@ export default function Home({ data }: HomePageType) {
   // console.log('Home data\n=========\n', data)
   return (
     <>
-      <Banner data={data} />
-      <AboutTheClinic data={data} />
+      <Banner homepage={data.homepage} />
+      <AboutTheClinic
+        homepage={data.homepage}
+        id={data.common.appLinks[1].relativeLink.slice(1)}
+      />
       <WhatWeDo data={data} />
       <ContactUs data={data} />
       Here is the structure of the home page data:

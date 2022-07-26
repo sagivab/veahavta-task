@@ -33,18 +33,25 @@ module.exports = {
         'brown-bg': '#E5E5E5',
         azure: '#E2F7F9',
         'hamburger-bg': '#E6E4FD',
+        'banner-start': '#F4F3FD',
+        'banner-end': '#D3D1FC',
       },
       borderWidth: {
         1: '1px',
       },
       text: {
-        medium: 'md:text-xl',
+        medium: 'md:text-3xl',
         large: 'lg:text-2xl',
       },
       boxShadow: {
         '4xl': '0px 0px 4px rgba(0,0,0,0.25)',
       },
-      height: { header: '95px' },
+      maxWidth: {
+        'content-xs': '330px',
+        'content-sm': '360px',
+        'content-md': '550px',
+      },
+      height: { header: '95px', banner: '780px' },
       minHeight: {
         'screen-50': '50vh',
       },
