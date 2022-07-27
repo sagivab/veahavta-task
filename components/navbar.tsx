@@ -47,7 +47,7 @@ export default function Navbar({ links, languages }: NavbarProps): JSX.Element {
                 onClick={handleMobileNavbarLinkClicked}
                 className="text-3xl rounded-md hover:shadow-inner cursor-pointer hover:shadow-dark active:translate-y-1 active:shadow-primary"
               >
-                <Link href={key.relativeLink}>
+                <Link href={key.relativeLink === '' ? '/' : key.relativeLink}>
                   <a>{key.text}</a>
                 </Link>
               </li>

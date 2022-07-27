@@ -53,6 +53,14 @@ export type Common = {
   contactUsFormPhone: string
   contactUsFormMessage: string
   contactUsFormSendButton: string
+  contactUsFormSuccessMessage: string
+  contactUsFormErrorFirstNameMissing: string
+  contactUsFormErrorLastNameMissing: string
+  contactUsFormErrorEmailMissing: string
+  contactUsFormErrorEmailInvalid: string
+  contactUsFormErrorPhoneMissing: string
+  contactUsFormErrorPhoneInvalid: string
+  contactUsFormErrorMessageMissing: string
   footerMenuTitle: string
   footerContactUsTitle: string
   footerScheduleButton: string

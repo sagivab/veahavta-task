@@ -16,7 +16,6 @@ export default function AboutTheClinic({ homepage, id }: CommonComponentProps) {
             alt="handslove"
           />
         </div>
-        {/* <div>aaa</div> */}
         <About homepage={homepage} />
       </WrapperLarge>
     </div>

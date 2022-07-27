@@ -52,7 +52,7 @@ module.exports = {
         'content-sm': '360px',
         'content-md': '550px',
       },
-      height: { header: '95px', banner: '780px' },
+      height: { header: '95px', banner: '780px', 'contact-us': '880px' },
       minHeight: {
         'screen-50': '50vh',
       },
