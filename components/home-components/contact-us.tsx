@@ -17,7 +17,10 @@ export default function ContactUs({ data, id }: ContactUsProps) {
         <div className="max-w-lg md:mb-44 self-end justify-self-end">
           <ContactUsInDetails data={data.data} />
         </div>
-        <div className="h-contact-us md:h-banner md:mt-24 md:ml-28">
+        <div
+          id="contact-us-form"
+          className="h-contact-us md:h-banner md:mt-24 md:ml-28"
+        >
           <ContactUsForm data={data.data} />
         </div>
         <div className="absolute w-full h-1/2 top-1/2 md:h-3/4 md:top-1/4 -z-20 overflow-hidden bg-contact-bg">

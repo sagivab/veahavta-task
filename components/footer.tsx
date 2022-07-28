@@ -3,7 +3,7 @@ import { WrapperLarge } from './wrapper'
 import ContactUsItem from './data-components/contact-us-item'
 import NavigationLinks from './data-components/navigation-links'
 import LogoLink from './logo-link'
-import { useEffect } from 'react'
+import Link from 'next/link'
 export default function Footer({ data }: CommonType) {
   return (
     <WrapperLarge>
@@ -12,9 +12,11 @@ export default function Footer({ data }: CommonType) {
           <LogoLink />
         </div>
         <div className="flex flex-col gap-y-3">
-          <button className="text-icon-bg font-bold p-3 border-2 border-icon-bg  rounded-full hover:scale-125">
-            {data.footerScheduleButton}
-          </button>
+          <Link href="#contact-us-form" passHref>
+            <a className="text-icon-bg font-bold p-3 border-2 border-icon-bg  rounded-full hover:scale-125">
+              {data.footerScheduleButton}
+            </a>
+          </Link>
           <button className="text-icon-bg font-bold py-3 px-5 border-2 border-icon-bg  rounded-full hover:scale-125">
             {data.footerSupportUsButton}
           </button>

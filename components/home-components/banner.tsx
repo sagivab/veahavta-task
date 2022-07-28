@@ -5,6 +5,7 @@ import { PageHeader } from '../data-components/header-text'
 import PageContent from '../data-components/header-content'
 import ImageWrapper from '../image-frame'
 import useWindowSize from 'hooks/useWindowSize'
+import Link from 'next/link'
 
 const ImagesData = [
   {
@@ -56,9 +57,11 @@ export default function Banner({ homepage }: { homepage: Homepage }) {
         <div className="background"></div>
         <PageHeader>{homepage.title}</PageHeader>
         <PageContent>{`${homepage.description}.`}</PageContent>
-        <button className="mt-12 p-3 bg-icon-bg rounded-full font-bold text-light text-2xl">
-          {homepage.getToKnowUsButton}
-        </button>
+        <Link href="#what-we-do" passHref>
+          <a className="mt-12 p-3 bg-icon-bg rounded-full font-bold text-light text-2xl">
+            {homepage.getToKnowUsButton}
+          </a>
+        </Link>
         {width >= mdScreenSize &&
           ImagesData.map((imageData) => (
             <ImageWrapper {...imageData} key={imageData.src} />

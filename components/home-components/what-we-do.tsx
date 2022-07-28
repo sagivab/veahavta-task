@@ -18,7 +18,7 @@ export default function WhatWeDo({ homepage }: { homepage: Homepage }) {
     })
   }
   return (
-    <div>
+    <div id="what-we-do">
       <WrapperLarge className="auto-rows-auto px-5 mt-10 md:mt-24">
         <h2 className="text-accent text-2xl mb-9 md:mb-0 md:text-center">
           {homepage.whatWeDoHeading}
