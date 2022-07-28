@@ -17,7 +17,7 @@ export default function ImageWrapper({
   width = 315,
 }: ImageWrapperProps) {
   return (
-    <div className={`hidden md:block absolute ${className}`}>
+    <div className={`absolute ${className}`}>
       <Image src={src} width={width} height={height} alt={alt} />
     </div>
   )

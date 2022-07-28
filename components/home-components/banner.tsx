@@ -4,6 +4,7 @@ import React from 'react'
 import { PageHeader } from '../data-components/header-text'
 import PageContent from '../data-components/header-content'
 import ImageWrapper from '../image-frame'
+import useWindowSize from 'hooks/useWindowSize'
 
 const ImagesData = [
   {
@@ -45,6 +46,10 @@ const ImagesData = [
 ]
 
 export default function Banner({ homepage }: { homepage: Homepage }) {
+  const [width, _] = useWindowSize()
+
+  const mdScreenSize = 768
+
   return (
     <div id="top-header">
       <div className="wrapper top- h-banner flex flex-col justify-center items-center overflow-hidden gap-y-6">
@@ -54,9 +59,10 @@ export default function Banner({ homepage }: { homepage: Homepage }) {
         <button className="mt-12 p-3 bg-icon-bg rounded-full font-bold text-light text-2xl">
           {homepage.getToKnowUsButton}
         </button>
-        {ImagesData.map((imageData) => (
-          <ImageWrapper {...imageData} key={imageData.src} />
-        ))}
+        {width >= mdScreenSize &&
+          ImagesData.map((imageData) => (
+            <ImageWrapper {...imageData} key={imageData.src} />
+          ))}
         <style jsx>{`
           div.wrapper {
             margin-top: -${themePreval.height.header};
