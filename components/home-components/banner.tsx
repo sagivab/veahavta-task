@@ -51,7 +51,7 @@ export default function Banner({ homepage }: { homepage: Homepage }) {
         <div className="background"></div>
         <PageHeader>{homepage.title}</PageHeader>
         <PageContent>{`${homepage.description}.`}</PageContent>
-        <button className="w-48 h-16 mt-12 px-8 py-3 bg-icon-bg rounded-full font-bold text-light text-2xl">
+        <button className="mt-12 p-3 bg-icon-bg rounded-full font-bold text-light text-2xl">
           {homepage.getToKnowUsButton}
         </button>
         {ImagesData.map((imageData) => (

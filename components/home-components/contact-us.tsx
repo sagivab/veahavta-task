@@ -13,7 +13,7 @@ interface ContactUsProps {
 export default function ContactUs({ data, id }: ContactUsProps) {
   return (
     <div id={id}>
-      <WrapperLarge className="relative md:grid-cols-2 gap-y-14  mt-10 md:mt-24 px-5  md:h-contact-us">
+      <WrapperLarge className="relative md:grid-cols-2 gap-y-14 mb-20 mt-10 md:mt-24 px-5 md:h-contact-us">
         <div className="max-w-lg md:mb-44 self-end justify-self-end">
           <ContactUsInDetails data={data.data} />
         </div>

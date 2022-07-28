@@ -29,24 +29,29 @@ export type Homepage = {
   contactUsText: string
 }
 
+export type ContactUsItemType = {
+  text: string
+  linkType: string
+  imagePath: string
+  linkValue: string
+}
+
+export type AppLinkType = {
+  text: string
+  relativeLink: string
+}
+
+export type LanguagesType = {
+  he: string
+  en: string
+  ar: string
+  am: string
+  ti: string
+}
 export type Common = {
-  contactUsLinks: Array<{
-    text: string
-    linkType: string
-    imagePath: string
-    linkValue: string
-  }>
-  appLinks: Array<{
-    text: string
-    relativeLink: string
-  }>
-  languageNames: Array<{
-    he: string
-    en: string
-    ar: string
-    am: string
-    ti: string
-  }>
+  contactUsLinks: Array<ContactUsItemType>
+  appLinks: Array<AppLinkType>
+  languageNames: Array<LanguagesType>
   contactUsFormFirstName: string
   contactUsFormLastName: string
   contactUsFormEmail: string

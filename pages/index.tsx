@@ -29,8 +29,8 @@ export default function Home({ data }: HomePageType) {
         data={{ data }}
         id={data.common.appLinks[2].relativeLink.slice(1)}
       />
-      Here is the structure of the home page data:
-      <pre className="bg-dark text-light">{JSON.stringify(data, null, 2)}</pre>
+      {/* Here is the structure of the home page data: */}
+      {/* <pre className="bg-dark text-light">{JSON.stringify(data, null, 2)}</pre> */}
     </>
   )
 }

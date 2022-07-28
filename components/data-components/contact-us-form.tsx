@@ -188,7 +188,7 @@ export default function ContactUsForm({ data }: HomePageType) {
               {!isSubmitting ? (
                 <button
                   type="submit"
-                  className="bg-icon-bg text-light rounded-3xl text-2xl font-bold w-48 h-16 mt-8"
+                  className="bg-icon-bg text-light rounded-3xl text-2xl font-bold w-48 h-16 mt-8 hover:scale-110"
                 >
                   {data.common.contactUsFormSendButton}
                 </button>
