@@ -2,33 +2,11 @@ import { HomePageType } from '@/lib/interface'
 import React, { useState } from 'react'
 import { Formik, Form, Field, ErrorMessage, FormikHelpers } from 'formik'
 import Spinner from '@/components/icons/spinner'
+import { object, string } from 'yup'
 
-interface FormValues {
-  firstName: string
-  lastName: string
-  email: string
-  phone: string
-  message: string
-}
-
-const validEmail = new RegExp('^[\\w\\-.]+@([\\w-]+.)+[\\w-]{2,4}$')
-const validPhone = new RegExp(
+const phoneRegex = new RegExp(
   '^\\+?(972|0)(-)?0?(([23489]{1}\\d{7})|[5]{1}\\d{8})$',
 )
-const getErrorMessage = (
-  value: string,
-  validateObj: RegExp,
-  requiredErrorMessage: string,
-  invalidErrorMessage: string,
-) => {
-  if (!value) {
-    return requiredErrorMessage
-  } else if (!validateObj.test(value)) {
-    return invalidErrorMessage
-  }
-
-  return ''
-}
 
 const initialValues: FormValues = {
   firstName: '',
@@ -36,6 +14,14 @@ const initialValues: FormValues = {
   email: '',
   phone: '',
   message: '',
+}
+
+interface FormValues {
+  firstName: string
+  lastName: string
+  email: string
+  phone: string
+  message: string
 }
 
 export default function ContactUsForm({ data }: HomePageType) {
@@ -50,62 +36,33 @@ export default function ContactUsForm({ data }: HomePageType) {
     submitProps.resetForm()
   }
 
-  const validate = (values: FormValues) => {
-    const errors: Partial<FormValues> = {}
-    const { firstName, lastName, email, phone, message } = values
+  const {
+    contactUsFormErrorFirstNameMissing,
+    contactUsFormErrorLastNameMissing,
+    contactUsFormErrorEmailMissing,
+    contactUsFormErrorEmailInvalid,
+    contactUsFormErrorPhoneMissing,
+    contactUsFormErrorPhoneInvalid,
+    contactUsFormErrorMessageMissing,
+  } = data.common
 
-    const {
-      contactUsFormErrorFirstNameMissing,
-      contactUsFormErrorLastNameMissing,
-      contactUsFormErrorEmailMissing,
-      contactUsFormErrorEmailInvalid,
-      contactUsFormErrorPhoneMissing,
-      contactUsFormErrorPhoneInvalid,
-      contactUsFormErrorMessageMissing,
-    } = data.common
-
-    if (!firstName) {
-      errors.firstName = contactUsFormErrorFirstNameMissing
-    }
-
-    if (!lastName) {
-      errors.lastName = contactUsFormErrorLastNameMissing
-    }
-
-    if (!message) {
-      errors.message = contactUsFormErrorMessageMissing
-    }
-
-    const emailErrorMessage = getErrorMessage(
-      email,
-      validEmail,
-      contactUsFormErrorEmailMissing,
-      contactUsFormErrorEmailInvalid,
-    )
-
-    if (emailErrorMessage) {
-      errors.email = emailErrorMessage
-    }
-
-    const phoneErrorMessage = getErrorMessage(
-      phone,
-      validPhone,
-      contactUsFormErrorPhoneMissing,
-      contactUsFormErrorPhoneInvalid,
-    )
-
-    if (phoneErrorMessage) {
-      errors.phone = phoneErrorMessage
-    }
-
-    return errors
-  }
+  const formSchema = object({
+    firstName: string().required(contactUsFormErrorFirstNameMissing),
+    lastName: string().required(contactUsFormErrorLastNameMissing),
+    email: string()
+      .required(contactUsFormErrorEmailMissing)
+      .email(contactUsFormErrorEmailInvalid),
+    phone: string()
+      .required(contactUsFormErrorPhoneMissing)
+      .matches(phoneRegex, contactUsFormErrorPhoneInvalid),
+    message: string().required(contactUsFormErrorMessageMissing),
+  })
 
   return (
     <Formik
       initialValues={initialValues}
       onSubmit={onSubmit}
-      validate={validate}
+      validationSchema={formSchema}
     >
       {({ isSubmitting }) => (
         <Form>
